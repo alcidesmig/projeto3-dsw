@@ -13,7 +13,7 @@ class SiteController extends RestfulController {
     }
 
     @Secured(['ROLE_ADMIN', 'ROLE_SITE'])
-    index() {
+    def index() {
         super.index();
     }
 
