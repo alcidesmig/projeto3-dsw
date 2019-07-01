@@ -4,4 +4,11 @@ model {
 	Teatro teatro
 }
 
-json g.render(teatro, [resolveTemplate: false])
+json {
+	id teatro.id
+    email teatro.email
+    senha teatro.senha
+    cnpj teatro.cnpj
+    nome teatro.nome
+    cidade teatro.cidade
+}
