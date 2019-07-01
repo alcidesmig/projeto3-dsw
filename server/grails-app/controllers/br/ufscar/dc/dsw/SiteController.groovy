@@ -11,4 +11,10 @@ class SiteController extends RestfulController {
     SiteController() {
         super(Site)
     }
+
+    @Secured(['ROLE_ADMIN', 'ROLE_SITE'])
+    index() {
+        super.index();
+    }
+
 }

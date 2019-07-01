@@ -11,4 +11,9 @@ class TeatroController extends RestfulController {
     TeatroController() {
         super(Teatro)
     }
+
+    @Secured(['ROLE_GUEST', 'ROLE_ADMIN', 'ROLE_SITE'])
+    index() {
+        super.index();
+    }
 }
