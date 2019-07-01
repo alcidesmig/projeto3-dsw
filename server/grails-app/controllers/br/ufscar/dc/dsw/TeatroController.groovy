@@ -3,11 +3,12 @@ package br.ufscar.dc.dsw
 
 import grails.rest.*
 import grails.converters.*
+import grails.plugin.springsecurity.annotation.Secured
 
 @Secured(['ROLE_ADMIN'])
-class SalaController extends RestfulController {
+class TeatroController extends RestfulController {
     static responseFormats = ['json', 'xml']
-    SalaController() {
-        super(Sala)
+    TeatroController() {
+        super(Teatro)
     }
 }
