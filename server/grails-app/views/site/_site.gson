@@ -4,4 +4,11 @@ model {
 	Site site
 }
 
-json g.render(site, [resolveTemplate: false])
+json {
+	id site.id
+    email site.email
+    senha site.senha
+    url site.url
+    nome site.nome
+    telefone site.telefone
+}
