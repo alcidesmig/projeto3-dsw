@@ -1,4 +1,9 @@
 ---
+server:
+    contextPath: '/dsw'
+grails:
+    cors:
+        enabled: true
 grails:
     profile: rest-api
     codegen:
