@@ -4,4 +4,18 @@ model {
 	Promocao promocao
 }
 
-json g.render(promocao, [resolveTemplate: false])
+json {
+	id promocao.id
+	site {
+		promocao.site.id
+		promocao.site.nome
+		promocao.site.url
+	}
+	teatro {
+		promocao.teatro.id
+		promocao.teatro.nome
+	}
+	nome promocao.nome
+	preco promocao.preco
+	datetime promocao.dia_hora
+}

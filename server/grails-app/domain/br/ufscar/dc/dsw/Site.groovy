@@ -12,6 +12,7 @@ class Site {
          nome blank: false
          telefone blank: false
     }
+    int id;
     String email;
     String senha;
     String url;

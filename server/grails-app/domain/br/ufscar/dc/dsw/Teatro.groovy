@@ -12,6 +12,7 @@ class Teatro {
          nome blank: false
          cidade blank: false
     }
+    int id;
     String email;
     String senha;
     String cnpj;

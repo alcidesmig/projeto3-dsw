@@ -13,6 +13,7 @@ class Promocao {
          dia_hora blank: false
          preco min: 0.00
     }
+    int id;
     Site site;
     Teatro teatro;
     String nome;
