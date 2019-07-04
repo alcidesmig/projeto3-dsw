@@ -17,4 +17,11 @@ class SiteController extends RestfulController {
         super.index();
     }
 
+    @Transactional
+	def save(Site site) {
+	     site.save() 
+	     Role role = Role.findByAuthority('ROLE_SITE')
+	     UserRole.create(site, role, true)
+	}
+
 }

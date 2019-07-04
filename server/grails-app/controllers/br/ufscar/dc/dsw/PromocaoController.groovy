@@ -17,4 +17,19 @@ class PromocaoController extends RestfulController {
         super.index();
     }
 
+    /*
+    @Transactional
+    def save(Promocao promocao) {
+        def query = Promocao.where{
+                (dia_hora == promocao.dia_hora && site == promocao.site) ||
+                (dia_hora == promocao.dia_hora && teatro == promocao.teatro) 
+        };
+        if(query.find() != NULL) {
+            promocao.save();
+        } else {
+            <retornar erro>; 
+        }
+    }
+    */
+
 }

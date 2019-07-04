@@ -17,7 +17,10 @@ class TeatroController extends RestfulController {
         super.index();
     }
 
-    def create(){
-    	super.create();
-    }
+    @Transactional
+	def save(Teatro teatro) {
+	     teatro.save() // salva o teatro
+	     Role role = Role.findByAuthority('ROLE_TEATRO') // recupera o role criado no Bootstrap
+	     UserRole.create(teatro, role, true) // associa o teatro ao papel
+	}
 }
