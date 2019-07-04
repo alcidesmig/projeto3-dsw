@@ -4,6 +4,7 @@ package br.ufscar.dc.dsw
 import grails.rest.*
 import grails.converters.*
 import grails.plugin.springsecurity.annotation.Secured
+import grails.gorm.transactions.*
 
 @Secured(['ROLE_ADMIN'])
 class SiteController extends RestfulController {
@@ -19,9 +20,8 @@ class SiteController extends RestfulController {
 
     @Transactional
 	def save(Site site) {
-	     site.save() 
-	     Role role = Role.findByAuthority('ROLE_SITE')
-	     UserRole.create(site, role, true)
+	     super.save()
+	     
 	}
 
 }

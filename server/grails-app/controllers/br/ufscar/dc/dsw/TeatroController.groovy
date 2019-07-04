@@ -4,6 +4,7 @@ package br.ufscar.dc.dsw
 import grails.rest.*
 import grails.converters.*
 import grails.plugin.springsecurity.annotation.Secured
+import grails.gorm.transactions.*
 
 @Secured(['ROLE_ADMIN'])
 class TeatroController extends RestfulController {
