@@ -12,7 +12,7 @@ class TeatroController extends RestfulController {
         super(Teatro)
     }
 
-    @Secured(['ROLE_ANONYMOUS'])
+    @Secured(['ROLE_ANONYMOUS', 'ROLE_ADMIN'])
     def index() {
         super.index();
     }

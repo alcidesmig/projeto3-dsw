@@ -12,7 +12,7 @@ class PromocaoController extends RestfulController {
         super(Promocao)
     }
 
-    @Secured(['ROLE_ANONYMOUS'])
+    @Secured(['ROLE_ANONYMOUS', 'ROLE_TEATRO', 'ROLE_ADMIN', 'ROLE_SITE'])
     def index() {
         super.index();
     }
