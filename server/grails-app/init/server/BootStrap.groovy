@@ -14,7 +14,6 @@ class BootStrap {
         Role admin = new Role(authority: 'ROLE_ADMIN').save()
         Role site = new Role(authority: 'ROLE_SITE').save()
         Role teatro = new Role(authority: 'ROLE_TEATRO').save()
-        Role guest = new Role(authority: 'ROLE_GUEST').save()
 
         User user = new User(username: "admin", password: "admin").save()
         UserRole.create(user, admin, true)

@@ -16,4 +16,8 @@ class TeatroController extends RestfulController {
     def index() {
         super.index();
     }
+
+    def create(){
+    	super.create();
+    }
 }
