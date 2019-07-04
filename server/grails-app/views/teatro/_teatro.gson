@@ -7,7 +7,7 @@ model {
 json {
 	id teatro.id
     email teatro.email
-    senha teatro.password
+    password teatro.password
     cnpj teatro.cnpj
     nome teatro.nome
     cidade teatro.cidade

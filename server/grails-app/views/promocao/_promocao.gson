@@ -7,13 +7,13 @@ model {
 json {
 	id promocao.id
 	site {
-		idsite promocao.site.id
-		nomesite promocao.site.nome
-		urlsite promocao.site.url
+		id promocao.site.id
+		nome promocao.site.nome
+		url promocao.site.url
 	}
 	teatro {
-		idteatro promocao.teatro.id
-		nometeatro promocao.teatro.nome
+		id promocao.teatro.id
+		nome promocao.teatro.nome
 	}
 	nome promocao.nome
 	preco promocao.preco
