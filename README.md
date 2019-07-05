@@ -1,5 +1,9 @@
 ## Repositório do projeto 3 da disciplina DSW1 - 2019.1
 
+## Instruções para rodar o sistema
+- cd server; grails run-app
+- cd dsw3-front; npm install; npm start
+
 ## Especificações do sistema
 
 - Sistema para criação de promoções em sites de venda de ingressos.
