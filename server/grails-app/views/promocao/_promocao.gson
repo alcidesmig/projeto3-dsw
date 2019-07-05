@@ -10,12 +10,14 @@ json {
 		id promocao.site.id
 		nome promocao.site.nome
 		url promocao.site.url
+		email promocao.site.email
 	}
 	teatro {
 		id promocao.teatro.id
 		nome promocao.teatro.nome
+		email promocao.teatro.email
 	}
 	nome promocao.nome
 	preco promocao.preco
-	datetime promocao.dia_hora
+	dia_hora promocao.dia_hora
 }

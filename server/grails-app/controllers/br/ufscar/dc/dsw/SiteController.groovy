@@ -12,7 +12,7 @@ class SiteController {
     static responseFormats = ['json', 'xml']
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
-    @Secured(['ROLE_ADMIN', 'ROLE_SITE'])
+    @Secured(['ROLE_ADMIN', 'ROLE_SITE', 'ROLE_TEATRO'])
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond siteService.list(params), model:[siteCount: siteService.count()]

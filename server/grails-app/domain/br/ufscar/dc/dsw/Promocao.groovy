@@ -9,5 +9,5 @@ class Promocao {
     Teatro teatro;
     String nome;
     Double preco;
-    Date dia_hora;
+    String dia_hora;
 }
