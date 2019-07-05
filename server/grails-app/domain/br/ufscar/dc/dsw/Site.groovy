@@ -6,12 +6,12 @@ import grails.rest.*
 @Resource(uri = '/site', readOnly = false, formats = ['json', 'xml'])
 class Site extends User{
     static constraints = {
-         email blank: false 
+         email blank: false, unique: true
          url blank: false
          nome blank: false
          telefone blank: false
+         id unique: true
     }
-    java.lang.Long id;
     String email;
     String url;
     String nome;

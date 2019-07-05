@@ -34,7 +34,7 @@ class UserRole implements Serializable {
 		hashCode
 	}
 
-	static UserRole get(long userId, long roleId) {
+	static UserRole get(java.lang.Long userId, long roleId) {
 		criteriaFor(userId, roleId).get()
 	}
 

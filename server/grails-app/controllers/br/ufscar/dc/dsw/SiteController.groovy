@@ -1,27 +1,69 @@
 package br.ufscar.dc.dsw
 
-
-import grails.rest.*
-import grails.converters.*
+import grails.validation.ValidationException
+import static org.springframework.http.HttpStatus.*
 import grails.plugin.springsecurity.annotation.Secured
-import grails.gorm.transactions.*
 
 @Secured(['ROLE_ADMIN'])
-class SiteController extends RestfulController {
+class SiteController {
+
+    SiteService siteService
+
     static responseFormats = ['json', 'xml']
-    SiteController() {
-        super(Site)
-    }
+    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     @Secured(['ROLE_ADMIN', 'ROLE_SITE'])
-    def index() {
-        super.index();
+    def index(Integer max) {
+        params.max = Math.min(max ?: 10, 100)
+        respond siteService.list(params), model:[siteCount: siteService.count()]
     }
 
-    @Transactional
-	def save(Site site) {
-	     super.save()
-	     
-	}
+    def show(Long id) {
+        respond siteService.get(id)
+    }
 
+    def save(Site site) {
+        if (site == null) {
+            render status: NOT_FOUND
+            return
+        }
+
+        try {
+            siteService.save(site)
+            Role role = Role.findByAuthority('ROLE_SITE') // recupera o role criado no Bootstrap
+            UserRole.create(site, role, true)
+        } catch (ValidationException e) {
+            respond site.errors, view:'create'
+            return
+        }
+
+        respond site, [status: CREATED, view:"show"]
+    }
+
+    def update(Site site) {
+        if (site == null) {
+            render status: NOT_FOUND
+            return
+        }
+
+        try {
+            siteService.save(site)
+        } catch (ValidationException e) {
+            respond site.errors, view:'edit'
+            return
+        }
+
+        respond site, [status: OK, view:"show"]
+    }
+
+    def delete(Long id) {
+        if (id == null) {
+            render status: NOT_FOUND
+            return
+        }
+
+        siteService.delete(id)
+
+        render status: NO_CONTENT
+    }
 }
