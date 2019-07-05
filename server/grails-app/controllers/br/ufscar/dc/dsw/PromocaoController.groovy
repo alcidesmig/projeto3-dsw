@@ -5,7 +5,7 @@ import static org.springframework.http.HttpStatus.*
 import grails.plugin.springsecurity.annotation.Secured
 import grails.converters.JSON
 
-@Secured(['ROLE_ANONYMOUS'])
+@Secured(['ROLE_TEATRO', 'ROLE_ADMIN'])
 class PromocaoController {
 
     PromocaoService promocaoService
@@ -30,15 +30,15 @@ class PromocaoController {
         }
 
         try {
-            def query = Promocao.where{
+            def query = Promocao.find{
                 (dia_hora == promocao.dia_hora && site == promocao.site) ||
                 (dia_hora == promocao.dia_hora && teatro == promocao.teatro) 
             };
-            if(query.find() != NULL) {
-                promocaoService.save(promocao)
+            if(query == null) {
+                promocaoService.save(promocao);
             } else {
-                def error = [error: 'Erro: conflito data']
-                render(status:500,text:(error as JSON).toString(),contentType: 'application/json')
+                render error: "Conflito data";
+                return;
             }
         } catch (ValidationException e) {
             respond promocao.errors, view:'create'

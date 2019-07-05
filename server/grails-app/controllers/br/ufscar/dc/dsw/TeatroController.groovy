@@ -11,7 +11,7 @@ class TeatroController {
 
     static responseFormats = ['json', 'xml']
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
-    
+
     @Secured(['ROLE_ANONYMOUS', 'ROLE_ADMIN'])
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
@@ -31,7 +31,7 @@ class TeatroController {
         try {
             teatroService.save(teatro)
             Role role = Role.findByAuthority('ROLE_TEATRO') // recupera o role criado no Bootstrap
-            UserRole.create(site, role, true)
+            UserRole.create(teatro, role, true)
         } catch (ValidationException e) {
             respond teatro.errors, view:'create'
             return
