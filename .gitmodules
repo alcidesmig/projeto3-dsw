@@ -1,0 +1,3 @@
+[submodule "dsw3-front"]
+	path = dsw3-front
+	url = https://github.com/igmagollo/dsw3-front
